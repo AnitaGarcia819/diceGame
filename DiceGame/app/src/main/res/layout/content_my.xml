@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_my"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Your score: 0"
+        android:id="@+id/your_score" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Computer score: 0"
+        android:id="@+id/computer_score"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/your_score"
+        android:layout_toEndOf="@+id/your_score"
+        android:layout_marginLeft="47dp"
+        android:layout_marginStart="47dp" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="HOLD"
+        android:id="@+id/hold_button"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignTop="@+id/reset_button"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="ROLL"
+        android:id="@+id/roll_button"
+        android:layout_below="@+id/imageView"
+        android:layout_toLeftOf="@+id/imageView"
+        android:layout_toStartOf="@+id/imageView"
+        android:clickable="true"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="RESET"
+        android:layout_gravity="right"
+        android:id="@+id/reset_button"
+        android:layout_marginBottom="117dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:clickable="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/dice1"
+        android:layout_above="@+id/hold_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="53dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Overall: 0"
+        android:id="@+id/overall_score_user"
+        android:layout_below="@+id/your_score"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Overall: 0"
+        android:id="@+id/overall_score_comp"
+        android:layout_below="@+id/computer_score"
+        android:layout_alignLeft="@+id/computer_score"
+        android:layout_alignStart="@+id/computer_score" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="play_again"
+        android:id="@+id/play_again_button"
+        android:visibility="invisible"
+        android:onClick="playAgain"
+        android:layout_alignTop="@+id/hold_button"
+        android:layout_alignLeft="@+id/hold_button"
+        android:layout_alignStart="@+id/hold_button" />
+
+</RelativeLayout>

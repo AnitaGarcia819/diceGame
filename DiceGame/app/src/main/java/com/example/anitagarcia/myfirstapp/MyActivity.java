@@ -7,6 +7,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +26,7 @@ public class MyActivity extends AppCompatActivity {
     private int userTurnScore = 0;
     private int compOverallScore = 0;
     private int compTurnScore = 0;
+	Animation shk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class MyActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // On click listeners for buttons
+		 shk=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake);
         Button roll_button = (Button) findViewById(R.id.roll_button);
         final Button hold_button = (Button) findViewById(R.id.hold_button);
         Button reset_button = (Button) findViewById(R.id.reset_button);
@@ -153,9 +157,13 @@ public class MyActivity extends AppCompatActivity {
         scoreText.setText("Your Score:" + score);
     }
     public int roll(){
-        Random randomGenerator = new Random();
-        int randomNumber = randomGenerator.nextInt(6);
+        //Random randomGenerator = new Random();
+        //int randomNumber = randomGenerator.nextInt(6);
+		 int max=6;
+        int min=1;
+        int randomNumber=min+(int)(Math.random()*((max-min)+1));
         ImageView iv = (ImageView) findViewById(R.id.imageView);
+		iv.startAnimation(shk);
         Drawable diceImage;
         switch(randomNumber){
             case 1: diceImage = ResourcesCompat.getDrawable(getResources(), R.drawable.dice1, null);
